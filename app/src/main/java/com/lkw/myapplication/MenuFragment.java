@@ -12,6 +12,46 @@ import android.view.ViewGroup;
 public class MenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.layout_menu, null);
+        View view = inflater.inflate(R.layout.layout_menu, null);
+
+
+
+
+
+
+        return view;
+    }
+
+
+    public void OnClick(View view){
+        switch (view.getId()){
+            case R.id.head_login:
+
+                break;
+            case R.id.slid_zhichi:
+
+                break;
+            case R.id.slid_xihuan:
+
+                break;
+            case R.id.slid_faqi:
+
+                break;
+            case R.id.slid_haoyou:
+
+                break;
+            case R.id.slid_dizhi:
+
+                break;
+            case R.id.slid_lishi:
+
+                break;
+            case R.id.slid_shezhi:
+
+                break;
+            case R.id.slid_xinshou:
+
+                break;
+        }
     }
 }
