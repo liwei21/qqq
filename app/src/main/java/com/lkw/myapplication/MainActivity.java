@@ -7,8 +7,10 @@ import android.view.View;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
+import com.lkw.myapplication.fragment.ContentFragment;
+import com.lkw.myapplication.fragment.MenuFragment;
 
-import fragment.ContentFragment;
+
 
 
 public class MainActivity extends SlidingFragmentActivity {

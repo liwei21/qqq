@@ -7,7 +7,7 @@
 
 
     <RelativeLayout
-        android:id="@+id/head_login"
+        android:id="@+id/head_real_login"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="50dp"
         android:gravity="center"
@@ -50,7 +50,7 @@
     </RelativeLayout>
     <TextView
         android:id="@+id/slid_line1"
-        android:layout_below="@+id/head_login"
+        android:layout_below="@+id/head_real_login"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="30dp"
