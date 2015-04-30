@@ -2,14 +2,13 @@ package com.lkw.myapplication;
 
 import android.graphics.Canvas;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
+
+import fragment.ContentFragment;
 
 
 public class MainActivity extends SlidingFragmentActivity {
