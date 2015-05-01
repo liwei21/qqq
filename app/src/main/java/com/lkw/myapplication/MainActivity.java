@@ -16,17 +16,20 @@ import com.lkw.myapplication.fragment.MenuFragment;
 public class MainActivity extends SlidingFragmentActivity {
 
     private Fragment mContent;
+    public static SlidingMenu sm;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.layout_main);
+        sm = getSlidingMenu();
 
         // check if the content frame contains the menu frame
         if (findViewById(R.id.menu_frame) == null) {
             setBehindContentView(R.layout.menu_frame);
             getSlidingMenu().setSlidingEnabled(true);
+            // 设置触摸屏幕的模式,整个屏幕都可以滑动
             getSlidingMenu()
                     .setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         } else {
@@ -41,6 +44,7 @@ public class MainActivity extends SlidingFragmentActivity {
         if (savedInstanceState != null) {
             mContent = getSupportFragmentManager().getFragment(
                     savedInstanceState, "mContent");
+
         }
 
         if (mContent == null) {
@@ -54,10 +58,12 @@ public class MainActivity extends SlidingFragmentActivity {
                 .replace(R.id.menu_frame, new MenuFragment()).commit();
 
         // customize the SlidingMenu
-        SlidingMenu sm = getSlidingMenu();
+//        SlidingMenu sm = getSlidingMenu();
+        // 设置滑动菜单视图的宽度
         sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
         sm.setFadeEnabled(false);
         sm.setBehindScrollScale(0.25f);
+        // 设置渐入渐出效果的值
         sm.setFadeDegree(0.25f);
 
         sm.setBackgroundImage(R.drawable.menu_background);
@@ -78,12 +84,14 @@ public class MainActivity extends SlidingFragmentActivity {
             }
         });
 
+
+
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        getSupportFragmentManager().putFragment(outState, "mContent", mContent);
+        getSupportFragmentManager().putFragment(outState, "mContent",mContent);
     }
 
 

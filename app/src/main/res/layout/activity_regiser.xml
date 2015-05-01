@@ -1,0 +1,128 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:background="@drawable/umeng_socialize_button_login_pressed"
+        >
+        <TextView
+            android:id="@+id/register_back"
+            android:text="返回"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/active_title_icon_01"
+            android:padding="10dp"
+            android:onClick="onClickListen"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+           android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+
+            />
+        <TextView
+            android:id="@+id/register_close"
+            android:text="关闭"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:layout_toRightOf="@+id/register_back"
+            android:padding="10dp"
+            android:gravity="center"
+            android:onClick="onClickListen"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+         />
+        <TextView
+            android:id="@+id/register_xin"
+            android:layout_width="wrap_content"
+            android:text="新用户注册"
+            android:textColor="#ffffff"
+            android:textSize="30sp"
+            android:layout_centerInParent="true"
+            android:padding="15dp"
+            android:layout_height="wrap_content" />
+        </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+        android:textSize="15sp"
+        android:textColor="#ff585858"
+        android:text="电话号码将用于认证本人及防止不正常使用，不会向其他用户公开"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/register_username"
+        android:layout_marginTop="15sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:hint="请输入您的账号"
+        android:textColor="#ff585858"
+
+        android:textSize="15sp"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/register_password"
+
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:hint="请输入密码"
+        android:textColor="#ff585858"
+
+        android:textSize="15sp"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:checked="true"
+        android:button="@null"
+        android:layout_margin="15dp"
+        android:background="@drawable/register_rb"
+        android:layout_height="wrap_content" />
+<TextView
+    android:layout_width="wrap_content"
+    android:text="阅读并同意众筹网的"
+    android:textColor="#ff585858"
+    android:textSize="15sp"
+    android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="《注册协议》"
+            android:textColor="#ff1d7bff"
+            android:textSize="15sp"
+            android:layout_height="wrap_content" />
+
+</LinearLayout>
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="10dp"
+        android:layout_below="@+id/login_linear1"
+        android:text="登录"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:background="@drawable/umeng_socialize_button_login_pressed"
+        android:layout_marginTop="15dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

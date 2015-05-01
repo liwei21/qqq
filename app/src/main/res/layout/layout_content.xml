@@ -13,7 +13,9 @@
 
         >
         <ImageView
+            android:id="@+id/content_frame_back"
             android:layout_width="wrap_content"
+            android:onClick="onClickListen"
             android:layout_height="wrap_content"
             android:src="@drawable/zc_login_name"
             />
