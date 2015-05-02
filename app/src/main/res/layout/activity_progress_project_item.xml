@@ -429,6 +429,7 @@
                 android:background="#d5d5d5" />
 
             <RadioGroup
+                android:id="@+id/rg_homepage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -440,6 +441,7 @@
                     android:layout_weight="1"
                     android:button="@null"
                     android:gravity="center"
+                    android:checked="true"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
                     android:text="首页"
@@ -468,6 +470,7 @@
                     android:gravity="center"
                     android:paddingBottom="10dp"
                     android:paddingTop="10dp"
+
                     android:text="动态"
                     android:textColor="@color/red"
                     android:textSize="20sp" />
