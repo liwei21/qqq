@@ -6,5 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_regiser">RegiserActivity</string>
+    <string name="title_activity_progress_project_item">progress_project_itemActivity</string>
+    <string name="title_activity_progress_new">ProgressNewActivity</string>
 
 </resources>
