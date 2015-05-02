@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ListView;
 
 import com.lkw.myapplication.adapter.ProgressNewAdapter;
@@ -23,64 +26,23 @@ import java.util.List;
 
 
 public class ProgressNewActivity extends ActionBarActivity {
-    private String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=1";
 
-    private Detail detail;
-    public static List<Detail> detailList;
-
-    private Handler handler=new Handler(){
-        @Override
-        public void handleMessage(Message msg) {
-            progress_new_listview.setAdapter(new ProgressNewAdapter(ProgressNewActivity.this,detailList));
-        }
-    };
-    private ListView progress_new_listview;
+    private WebView progress_webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress_new);
-        progress_new_listview = (ListView) findViewById(R.id.progress_new_listview);
-        getInfo(url);
-    }
+        progress_webView = (WebView) findViewById(R.id.progress_webView);
 
-    public void getInfo(String url){
+        progress_webView.getSettings().setJavaScriptEnabled(true);
+        progress_webView.setWebChromeClient(new WebChromeClient());
+        progress_webView.setWebViewClient(new WebViewClient());
 
-        HttpGetUtils.getJSONString(url,new HttpGetUtils.OnNetStrDataListener() {
-            @Override
-            public void successed(String result) {
-                try {
-                    JSONObject obj1 = new JSONObject(result);
+        Detail detail = ProgressActivity.detailList.get(0);
+        String url = detail.getDescUrl();
 
-                    detailList = new ArrayList<Detail>();
-                    JSONObject obj2 = obj1.getJSONObject("data");
-
-                    JSONArray arr = obj2.getJSONArray("description");
-                    for (int i = 0; i < arr.length(); i++) {
-                        detail = new Detail();
-                        JSONObject obj3 = arr.getJSONObject(i);
-                        detail.setContent(obj3.getString("content"));
-                        detail.setType(obj3.getInt("type"));
-                        detailList.add(detail);
-                    }
-
-                    handler.sendEmptyMessage(1);
-
-
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-
-            @Override
-            public void failed() {
-                Log.d("4444444444444444444444444", "失败");
-            }
-        });
+        progress_webView.loadUrl(url);
 
     }
 

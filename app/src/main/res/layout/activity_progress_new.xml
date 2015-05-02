@@ -70,11 +70,9 @@
             android:textSize="20sp" />
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/progress_new_listview"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+    <WebView
+        android:id="@+id/progress_webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"></WebView>
 
 </LinearLayout>

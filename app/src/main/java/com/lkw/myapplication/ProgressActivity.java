@@ -11,6 +11,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +22,9 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
 import com.lkw.myapplication.bean.Detail;
+import com.lkw.myapplication.bean.Owner;
 import com.lkw.myapplication.fragment.Fragment_Detail;
+import com.lkw.myapplication.tools.LoadBitmap;
 import com.lkw.myapplication.util.HttpGetUtils;
 
 import org.json.JSONArray;
@@ -35,12 +39,15 @@ import java.util.regex.Pattern;
 
 public class ProgressActivity extends ActionBarActivity implements View.OnClickListener {
 
-    private String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=1";
+    private String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=2";
 
     private Detail detail;
     public static List<Detail> detailList;
     private ViewPager progress_viewpager1;
     private List<String> imageUrlList;
+
+    private Owner owner;
+    private List<Owner>ownerList;
 
     private int index = 0;
     private Handler handler = new Handler() {
@@ -63,6 +70,19 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
     private TextView text_ck_text;
     private TextView text_more_text;
     private TextView text_more;
+    private ImageView author;
+    private TextView author_text;
+    private TextView author_intro;
+    private TextView author_dizhi;
+    private ProgressBar progressBar;
+    private TextView progressbar_num_text;
+    private TextView progress;
+    private TextView progress_mubiao_Number;
+    private TextView progress_day;
+    private TextView image_like_num;
+    private TextView image_zhichi_num;
+    private TextView progress_day_num;
+    private TextView progressbar_num;
 
 
     @Override
@@ -78,6 +98,20 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
 
         text_more.setOnClickListener(this);
 
+        author = (ImageView) findViewById(R.id.author);
+        author_text = (TextView) findViewById(R.id.author_text);
+        author_intro = (TextView) findViewById(R.id.author_intro);
+        author_dizhi = (TextView) findViewById(R.id.author_dizhi);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressbar_num_text = (TextView) findViewById(R.id.progressbar_num_text);
+        progress = (TextView) findViewById(R.id.progress);
+        progress_mubiao_Number = (TextView) findViewById(R.id.progress_mubiao_Number);
+        progress_day = (TextView) findViewById(R.id.progress_day);
+        image_like_num = (TextView) findViewById(R.id.image_like_num);
+        image_zhichi_num = (TextView) findViewById(R.id.image_zhichi_num);
+        progress_day_num = (TextView) findViewById(R.id.progress_day_num);
+        progressbar_num = (TextView) findViewById(R.id.progressbar_num);
 
         getInfo(url);
     }
@@ -90,7 +124,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
             @Override
             public void successed(String result) {
                 try {
-//                    Log.d("333333333333333333", "成功");
+                    Log.d("333333333333333333", "成功");
                     JSONObject obj1 = new JSONObject(result);
                     detailList = new ArrayList<Detail>();
                     JSONObject obj2 = obj1.getJSONObject("data");
@@ -137,13 +171,21 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
 
                     }
                     detail.setImageUrlArray(imageUrlList);
+                     detail.setSummary( obj2.getString("summary"));
+                    detail.setDescUrl(obj2.getString("descUrl"));
+                    detail.setProgress(obj2.getInt("progress"));
+                    detail.setSupportMoney(obj2.getString("supportMoney"));
+                    detail.setTargetMoney(obj2.getString("targetMoney"));
+                    detail.setSupportCount(obj2.getString("supportCount"));
+                    detail.setDayLeft(obj2.getString("dayLeft"));
+                    detail.setLikeCount(obj2.getString("likeCount"));
 
-
-                       detail.setSummary( obj2.getString("summary"));
-
-
-
-
+                    JSONObject obj3 = obj2.getJSONObject("owner");
+                    owner=new Owner();
+                    owner.setHeaderUrl(obj3.getString("headerUrl"));
+                    owner.setName(obj3.getString("name"));
+                    owner.setIntro(obj3.getString("intro"));
+                    owner.setProvince(obj3.getString("province"));
 
                     detailList.add(detail);
                     handler.sendEmptyMessage(0);
@@ -155,7 +197,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
 
             @Override
             public void failed() {
-//                Log.d("4444444444444444444444444", "失败");
+                Log.d("4444444444444444444444444", "失败");
             }
         });
     }
@@ -165,6 +207,19 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         String name = tail.getName();
         text_ck_text.setText(name);
         text_more_text.setText(tail.getSummary());
+        LoadBitmap.getBitmap(owner.getHeaderUrl(), author, ProgressActivity.this);
+        author_text.setText(owner.getName());
+        author_intro.setText(owner.getIntro());
+        author_dizhi.setText(owner.getProvince());
+        progressBar.setProgress(tail.getProgress());
+        progressbar_num_text.setText(tail.getProgress()+"%");
+        progressbar_num.setText(tail.getProgress()+"%");
+        progress.setText("￥"+tail.getSupportMoney());
+        progress_mubiao_Number.setText("￥"+tail.getTargetMoney());
+        progress_day_num.setText(tail.getDayLeft());
+        image_zhichi_num.setText(tail.getSupportCount());
+        image_like_num.setText(tail.getLikeCount());
+
     }
 
     @Override

@@ -177,6 +177,8 @@
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="fill_parent"
                     android:layout_height="6dp"
+                    android:max="100"
+                    android:visibility="visible"
                     android:layout_below="@+id/progressbar_num"
                     android:background="#c7c6c6" />
 
@@ -251,16 +253,17 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
                         android:text="已完成"
-                        android:textSize="16sp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/progress_mubiao"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@+id/text_wancheng"
+                        android:layout_marginLeft="40dp"
                         android:layout_centerVertical="true"
                         android:text="目标筹资"
-                        android:textSize="16sp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/progress_mubiao_Number"
@@ -268,7 +271,7 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/progress_mubiao"
                         android:text="￥"
-                        android:textSize="16sp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/progress_mubiao_Num"
@@ -286,7 +289,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginRight="5dp"
                         android:text="距离结束"
-                        android:textSize="16sp" />
+                        android:textSize="13sp" />
 
                 </RelativeLayout>
             </RelativeLayout>
@@ -392,6 +395,13 @@
                     android:layout_toRightOf="@+id/author"
                     android:text="2333333"
                     android:textSize="20sp" />
+                <TextView
+                    android:id="@+id/author_intro"
+                    android:layout_width="wrap_content"
+                    android:layout_toRightOf="@+id/author"
+                    android:layout_below="@+id/author_text"
+                    android:text="2222222222222"
+                    android:layout_height="wrap_content" />
 
                 <ImageView
                     android:id="@+id/author_dizhi_image"
