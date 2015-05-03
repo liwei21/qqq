@@ -21,13 +21,14 @@ import com.lkw.myapplication.tools.AutoTextView;
 /**
  * Created by LKW on 2015/4/30.
  */
-public class ContentFragment extends Fragment implements View.OnClickListener, ViewPager.OnPageChangeListener {
+public class ContentFragment extends Fragment implements View.OnClickListener {
     private SlidingMenu menu;
     private View view;
     private AutoTextView autotxtv;
     private static ImageView content_frame_back;
-    private ViewPager headPager;
+    private ViewPager headPager,circleimg_pager;
     private ImageView[] imgvDots = new ImageView[5];
+    private ImageView[] imgvTwoDots=new ImageView[2];
     private int count = 0;
     private Handler handler = new Handler() {
         @Override
@@ -55,17 +56,20 @@ public class ContentFragment extends Fragment implements View.OnClickListener, V
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.layout_content, container, false);
         headPager = (ViewPager) view.findViewById(R.id.head_pager);
-        ViewPager circleimg_pager = (ViewPager) view.findViewById(R.id.circleimg_pager);
+        circleimg_pager = (ViewPager) view.findViewById(R.id.circleimg_pager);
 
         ListView lv = (ListView) view.findViewById(R.id.main_list);
 
         content_frame_back = (ImageView) view.findViewById(R.id.content_frame_back);
         content_frame_back.setOnClickListener(this);
 
+        initCircleimg_pagerListener();//实例化中间八个圆图的监听
         circleimg_pager.setAdapter(new HomeCircleImgAdapter(getFragmentManager()));
 
-        initImgvDots();//实例化五个小点
-        headPager.setOnPageChangeListener(this);
+        initImgvFiveDots();//实例化五个小点
+        initImgvTwoDots();//实例化两个个小点
+
+        initHeadPagerListener();//实例化顶部 Viewpager监听
         headPager.setAdapter(new HomeHeadVpAdapter(getFragmentManager()));
         handler.sendEmptyMessage(0);
 
@@ -73,6 +77,57 @@ public class ContentFragment extends Fragment implements View.OnClickListener, V
         initAutoTextView();
         return view;
     }
+
+    private void initHeadPagerListener() {
+        headPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                for (int i = 0; i < imgvDots.length; i++) {
+                    if (i == position) {
+                        imgvDots[i].setImageResource(R.drawable.greendot);
+                    } else {
+                        imgvDots[i].setImageResource(R.drawable.blackdot);
+                    }
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
+
+    private void initCircleimg_pagerListener() {
+        circleimg_pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                for (int i = 0; i < imgvTwoDots.length; i++) {
+                    if (i == position) {
+                        imgvTwoDots[i].setImageResource(R.drawable.greendot);
+                    } else {
+                        imgvTwoDots[i].setImageResource(R.drawable.blackdot);
+                    }
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
+
 
     private int sCount=0;
     private void initAutoTextView() {
@@ -84,7 +139,7 @@ public class ContentFragment extends Fragment implements View.OnClickListener, V
         handler.sendEmptyMessageDelayed(1,2000);
     }
 
-    private void initImgvDots() {
+    private void initImgvFiveDots() {
         ImageView imgvDot1 = (ImageView) view.findViewById(R.id.imgvDot1);
         ImageView imgvDot2 = (ImageView) view.findViewById(R.id.imgvDot2);
         ImageView imgvDot3 = (ImageView) view.findViewById(R.id.imgvDot3);
@@ -96,7 +151,12 @@ public class ContentFragment extends Fragment implements View.OnClickListener, V
         imgvDots[3] = imgvDot4;
         imgvDots[4] = imgvDot5;
     }
-
+    private void initImgvTwoDots() {
+        ImageView twoDot1 = (ImageView) view.findViewById(R.id.twoDot1);
+        ImageView twoDot2 = (ImageView) view.findViewById(R.id.twoDot2);
+        imgvTwoDots[0] = twoDot1;
+        imgvTwoDots[1] = twoDot2;
+    }
 
     @Override
     public void onClick(View view) {
@@ -105,28 +165,6 @@ public class ContentFragment extends Fragment implements View.OnClickListener, V
                 menu.toggle();
                 break;
         }
-    }
-
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
-    @Override
-    public void onPageSelected(int position) {
-        for (int i = 0; i < imgvDots.length; i++) {
-            if (i == position) {
-                imgvDots[i].setImageResource(R.drawable.greendot);
-            } else {
-                imgvDots[i].setImageResource(R.drawable.blackdot);
-            }
-        }
-
-    }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
     }
 
     class HomeCircleImgAdapter extends FragmentPagerAdapter {
