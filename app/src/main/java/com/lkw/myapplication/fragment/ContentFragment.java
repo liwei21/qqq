@@ -12,7 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ScrollView;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.lkw.myapplication.MainActivity;
 import com.lkw.myapplication.R;
@@ -43,10 +46,14 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
                 case 1:
                     initAutoTextView();
                     break;
+                case 2:
+                    refresh.onRefreshComplete();
+                    break;
             }
         }
     };
 
+    private PullToRefreshScrollView refresh;
     public ContentFragment() {
         this.menu = MainActivity.sm;
     }
@@ -75,7 +82,27 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
 
         autotxtv= (AutoTextView) view.findViewById(R.id.autotxtv);
         initAutoTextView();
+
+        refresh= (PullToRefreshScrollView) view.findViewById(R.id.refresh);
+        refresh.setMode(PullToRefreshBase.Mode.BOTH);
+        initRefreshListener();
+
+
         return view;
+    }
+
+    private void initRefreshListener() {
+        refresh.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ScrollView>() {
+            @Override
+            public void onPullDownToRefresh(PullToRefreshBase<ScrollView> refreshView) {
+                handler.sendEmptyMessageDelayed(2,3000);
+            }
+
+            @Override
+            public void onPullUpToRefresh(PullToRefreshBase<ScrollView> refreshView) {
+
+            }
+        });
     }
 
     private void initHeadPagerListener() {
