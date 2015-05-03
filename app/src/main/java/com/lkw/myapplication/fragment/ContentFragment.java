@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,24 @@ import android.widget.ScrollView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshScrollView;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.exception.HttpException;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest;
 import com.lkw.myapplication.MainActivity;
 import com.lkw.myapplication.R;
+import com.lkw.myapplication.adapter.HomeLVAdapter;
 import com.lkw.myapplication.tools.AutoTextView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import Bean.HomeLvData;
 
 /**
  * Created by LKW on 2015/4/30.
@@ -49,11 +65,19 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
                 case 2:
                     refresh.onRefreshComplete();
                     break;
+                case 3:
+                    lvAdapter.notifyDataSetChanged();
+                    refresh.onRefreshComplete();
+                    break;
             }
         }
     };
 
+    private ListView listView;
     private PullToRefreshScrollView refresh;
+    private List<HomeLvData> curList=new ArrayList<>();
+    private HomeLVAdapter lvAdapter;
+
     public ContentFragment() {
         this.menu = MainActivity.sm;
     }
@@ -64,8 +88,6 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
         view = inflater.inflate(R.layout.layout_content, container, false);
         headPager = (ViewPager) view.findViewById(R.id.head_pager);
         circleimg_pager = (ViewPager) view.findViewById(R.id.circleimg_pager);
-
-        ListView lv = (ListView) view.findViewById(R.id.main_list);
 
         content_frame_back = (ImageView) view.findViewById(R.id.content_frame_back);
         content_frame_back.setOnClickListener(this);
@@ -87,8 +109,48 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
         refresh.setMode(PullToRefreshBase.Mode.BOTH);
         initRefreshListener();
 
-
+        listView = (ListView) view.findViewById(R.id.main_list);
+        getNetWorkData();
+        lvAdapter=new HomeLVAdapter(curList,getActivity());
+        listView.setAdapter(lvAdapter);
         return view;
+    }
+
+    private int offset=0;
+    private void getNetWorkData() {
+        //recommendlist?offset=0&v=2
+        String curUrlHou="offset="+offset+"&v=2";
+        String curUrl="http://api.zhongchou.cn/deal/recommendlist?"+curUrlHou;
+        HttpUtils utils=new HttpUtils();
+        utils.send(HttpRequest.HttpMethod.GET,curUrl,new RequestCallBack<String>() {
+            @Override
+            public void onSuccess(ResponseInfo<String> objectResponseInfo) {
+                try {
+                    Log.d("!!!!objectResponseInfo.result-->",objectResponseInfo.result);
+                    JSONObject obj=new JSONObject(objectResponseInfo.result);
+                    JSONArray dataArr=obj.getJSONArray("data");
+                    for(int i=0;i<dataArr.length();i++){
+                        JSONObject dataObj=dataArr.getJSONObject(i);
+                        HomeLvData dataBean=new HomeLvData();
+                        dataBean.setImageUrl(dataObj.getString("imageUrl"));
+                        dataBean.setName(dataObj.getString("name"));
+                        dataBean.setSummary(dataObj.getString("summary"));
+                        dataBean.setFloorPrice(dataObj.getString("floorPrice"));
+                        dataBean.setProgress(dataObj.getInt("progress")+"");
+                        curList.add(dataBean);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                offset+=10;
+            }
+
+            @Override
+            public void onFailure(HttpException e, String s) {
+
+            }
+        });
+
     }
 
     private void initRefreshListener() {
@@ -100,7 +162,8 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
 
             @Override
             public void onPullUpToRefresh(PullToRefreshBase<ScrollView> refreshView) {
-
+                getNetWorkData();
+                handler.sendEmptyMessage(3);
             }
         });
     }
@@ -193,6 +256,8 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
                 break;
         }
     }
+
+
 
     class HomeCircleImgAdapter extends FragmentPagerAdapter {
 

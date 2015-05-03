@@ -50,8 +50,8 @@
     </RelativeLayout>
 
     <com.handmark.pulltorefresh.library.PullToRefreshScrollView
-        xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:id="@+id/refresh"
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
@@ -274,10 +274,10 @@
 
             <View style="@style/main_devider"/>
 
-            <ListView
+            <com.lkw.myapplication.tools.MyListView
                 android:id="@+id/main_list"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"></ListView>
+                android:layout_height="fill_parent"></com.lkw.myapplication.tools.MyListView>
         </LinearLayout>
     </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
 
