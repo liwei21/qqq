@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.lkw.myapplication.bean.Detail;
 import com.lkw.myapplication.bean.Owner;
@@ -133,7 +134,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
 
 
 
-
+//注释
     public void getInfo(final String url) {
         HttpGetUtils.getJSONString(url, new HttpGetUtils.OnNetStrDataListener() {
             @Override
@@ -304,7 +305,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(ProgressActivity.this,"授权失败",Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProgressActivity.this, "授权失败", Toast.LENGTH_SHORT).show();
             }
         });
 
