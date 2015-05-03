@@ -3,15 +3,16 @@ package com.lkw.myapplication;
 import android.graphics.Canvas;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.lkw.myapplication.fragment.ContentFragment;
 import com.lkw.myapplication.fragment.MenuFragment;
+import com.lkw.myapplication.tools.DbHelper;
 
-
-
+import ParaserJson.HomeContentData;
 
 public class MainActivity extends SlidingFragmentActivity {
 
@@ -23,6 +24,13 @@ public class MainActivity extends SlidingFragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.layout_main);
+
+        Log.d("!!!!手机能打印--》","是的");
+        //初始化工具类
+        DbHelper.init(this);
+        //获取主页网络数据,缓存到了数据库
+        HomeContentData.paraserHomeJsonString();
+
         sm = getSlidingMenu();
 
         // check if the content frame contains the menu frame

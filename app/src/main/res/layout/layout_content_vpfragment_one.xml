@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+
+    <LinearLayout
+        android:paddingTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/quanbu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="homecircleOnclick"
+            android:src="@drawable/cate_quanbu"
+            />
+
+        <ImageButton
+            android:id="@+id/keji"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="homecircleOnclick"
+            android:src="@drawable/cate_keji"
+            />
+
+        <ImageButton
+            android:id="@+id/gongyi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="homecircleOnclick"
+            android:src="@drawable/cate_gongyi"
+            />
+
+        <ImageButton
+            android:id="@+id/chuban"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="homecircleOnclick"
+            android:src="@drawable/cate_chuban"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_marginLeft="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全部"/>
+        <TextView
+            android:layout_marginLeft="68dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="科技"/>
+        <TextView
+            android:layout_marginLeft="68dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公益"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="68dp"
+            android:layout_height="wrap_content"
+            android:text="出版"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/yule"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="homecircleOnclick"
+            android:src="@drawable/cate_yule"
+            />
+
+        <ImageButton
+            android:id="@+id/yishu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="homecircleOnclick"
+            android:src="@drawable/cate_yishu"
+            />
+
+        <ImageButton
+            android:id="@+id/nongye"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="homecircleOnclick"
+            android:src="@drawable/cate_nongye"
+            />
+
+        <ImageButton
+            android:id="@+id/shangpu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:onClick="homecircleOnclick"
+            android:src="@drawable/cate_shangpu"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_marginLeft="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="娱乐"/>
+        <TextView
+            android:layout_marginLeft="68dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="艺术"/>
+        <TextView
+            android:layout_marginLeft="68dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="农业"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="68dp"
+            android:layout_height="wrap_content"
+            android:text="商铺"/>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/greendot"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/blackdot"/>
+        </RelativeLayout>
+</LinearLayout>
