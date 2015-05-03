@@ -8,5 +8,5 @@
     <string name="title_activity_regiser">RegiserActivity</string>
     <string name="title_activity_progress_project_item">progress_project_itemActivity</string>
     <string name="title_activity_progress_new">ProgressNewActivity</string>
-
+    <string name="listView_activity_vp2_quanbu">VP2_quanbu_Activity</string>
 </resources>

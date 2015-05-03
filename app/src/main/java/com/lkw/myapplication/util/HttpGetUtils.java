@@ -1,6 +1,7 @@
 package com.lkw.myapplication.util;
 
-import java.io.IOException;
+import android.os.Handler;
+import android.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -10,10 +11,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
 
-
-
-import android.os.Handler;
-import android.util.Log;
+import java.io.IOException;
 
 public class HttpGetUtils {
 
@@ -32,7 +30,9 @@ public class HttpGetUtils {
 		new Thread() {
 			public void run() {
 				HttpClient client = new DefaultHttpClient();
-				HttpGet get = new HttpGet(strUrl);
+                Log.d("---strUrl","-----"+strUrl);
+                HttpGet get = new HttpGet(strUrl);
+
 				try {
 					HttpResponse response = client.execute(get);
 					if (response.getStatusLine().getStatusCode() == 200) {
