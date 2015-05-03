@@ -94,6 +94,8 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
     private TextView progressbar_num;
     private RadioGroup rg_homepage;
     private TextView share;
+    private TextView fanhui;
+    private TextView close;
 
 
     @Override
@@ -127,6 +129,13 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         rg_homepage.setOnCheckedChangeListener(this);
         share = (TextView) findViewById(R.id.share);
         share.setOnClickListener(this);
+
+        fanhui = (TextView) findViewById(R.id.fanhui);
+        fanhui.setOnClickListener(this);
+        close = (TextView) findViewById(R.id.close);
+        close.setOnClickListener(this);
+
+
         getInfo(url);
 
         getFragment(new FragmentProActivity());
@@ -247,6 +256,14 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
                 break;
             case R.id.share:
                 showShare();
+                break;
+            case R.id.fanhui:
+            finish();
+                break;
+            case R.id.close:
+                Intent intent1 = new Intent(ProgressActivity.this, MainActivity.class);
+                startActivity(intent1);
+                finish();
                 break;
         }
     }
