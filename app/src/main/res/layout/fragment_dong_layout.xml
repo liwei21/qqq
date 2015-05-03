@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:src="@drawable/umeng_socialize_follow_on"
+        android:layout_height="wrap_content" />
+    <TextView
+
+        android:id="@+id/dongtai_title"
+        android:layout_toRightOf="@+id/iv"
+        android:text="上线"
+        android:layout_marginLeft="10dp"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/dongtai_time"
+        android:text="6天前"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/dongtai_neirong"
+        android:layout_below="@+id/dongtai_title"
+        android:layout_alignLeft="@+id/dongtai_title"
+        android:text="111111111111111111"
+        android:textSize="15sp"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

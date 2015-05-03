@@ -6,6 +6,7 @@ import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +25,9 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
 import com.lkw.myapplication.bean.Detail;
 import com.lkw.myapplication.bean.Owner;
+import com.lkw.myapplication.fragment.FragmentDongTai;
+import com.lkw.myapplication.fragment.FragmentPingLun;
+import com.lkw.myapplication.fragment.FragmentProActivity;
 import com.lkw.myapplication.fragment.Fragment_Detail;
 import com.lkw.myapplication.tools.LoadBitmap;
 import com.lkw.myapplication.util.HttpGetUtils;
@@ -32,12 +37,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.tencent.qq.QQ;
+import m.framework.utils.UIHandler;
 
-public class ProgressActivity extends ActionBarActivity implements View.OnClickListener {
+
+public class ProgressActivity extends ActionBarActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, PlatformActionListener {
 
     private String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=2";
 
@@ -83,6 +98,8 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
     private TextView image_zhichi_num;
     private TextView progress_day_num;
     private TextView progressbar_num;
+    private RadioGroup rg_homepage;
+    private TextView share;
 
 
     @Override
@@ -112,8 +129,13 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         image_zhichi_num = (TextView) findViewById(R.id.image_zhichi_num);
         progress_day_num = (TextView) findViewById(R.id.progress_day_num);
         progressbar_num = (TextView) findViewById(R.id.progressbar_num);
-
+        rg_homepage = (RadioGroup) findViewById(R.id.rg_homepage);
+        rg_homepage.setOnCheckedChangeListener(this);
+        share = (TextView) findViewById(R.id.share);
+        share.setOnClickListener(this);
         getInfo(url);
+
+        getFragment(new FragmentProActivity());
     }
 
 
@@ -212,7 +234,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         author_intro.setText(owner.getIntro());
         author_dizhi.setText(owner.getProvince());
         progressBar.setProgress(tail.getProgress());
-        progressbar_num_text.setText(tail.getProgress()+"%");
+        progressbar_num_text.setText(tail.getProgress() + "%");
         progressbar_num.setText(tail.getProgress()+"%");
         progress.setText("￥"+tail.getSupportMoney());
         progress_mubiao_Number.setText("￥"+tail.getTargetMoney());
@@ -229,7 +251,105 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
                 Intent intent = new Intent(ProgressActivity.this, ProgressNewActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.share:
+                showShare();
+                break;
         }
+    }
+    private void showShare() {
+        ShareSDK.initSDK(this);
+        UIHandler.prepare();
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
+
+// 分享时Notification的图标和文字  2.5.9以后的版本不调用此方法
+        //oks.setNotification(R.drawable.ic_launcher, getString(R.string.app_name));
+        // title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间使用
+        oks.setTitle(getString(R.string.share));
+        // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
+        oks.setTitleUrl("http://sharesdk.cn");
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText("我是分享文本");
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+        oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+        // url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl("http://sharesdk.cn");
+        // comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment("我是测试评论文本");
+        // site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite(getString(R.string.app_name));
+        // siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl("http://sharesdk.cn");
+
+// 启动分享GUI
+        oks.show(this);
+    }
+
+    private void authorize(){
+        ShareSDK.initSDK(this);
+        Platform weibo = ShareSDK.getPlatform(this, QQ.NAME);
+        weibo.setPlatformActionListener(this);
+        weibo.showUser(null);//执行登录，登录后在回调里面获取用户资料
+//weibo.showUser(“3189087725”);//获取账号为“3189087725”的资料
+    }
+    @Override
+    public void onComplete(Platform platform, int i, HashMap<String, Object> stringObjectHashMap) {
+        StringBuilder builder=new StringBuilder();
+        Set<Map.Entry<String, Object>> entries = stringObjectHashMap.entrySet();
+        for (Map.Entry<String, Object> entry : entries) {
+            builder.append(entry.getKey()).append(":").append(entry.getValue()).append("\n");
+
+        }
+        share.setText(builder.toString());
+    }
+
+
+
+    @Override
+    public void onError(Platform platform, int i, Throwable throwable) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(ProgressActivity.this,"授权失败",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    @Override
+    public void onCancel(Platform platform, int i) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(ProgressActivity.this,"授权取消",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+        switch (i){
+            case R.id.rb_homepage:
+//                Log.d("hhhhhhhhhhhhhhh","点击");
+              getFragment(new FragmentProActivity());
+                break;
+            case R.id.rb_comment:
+                getFragment(new FragmentPingLun());
+                break;
+            case R.id.rb_dynamic:
+                getFragment(new FragmentDongTai());
+                break;
+        }
+    }
+
+    public void getFragment(Fragment fragment){
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.replace(R.id.re_list,fragment).commit();
     }
 
     class MyAdapter extends FragmentPagerAdapter {

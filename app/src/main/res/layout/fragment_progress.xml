@@ -3,9 +3,9 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ListView
+    <com.lkw.myapplication.tools.MyListView
         android:id="@+id/fragment_pro_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="match_parent"></com.lkw.myapplication.tools.MyListView>
 
 </LinearLayout>

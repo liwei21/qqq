@@ -5,9 +5,9 @@
         <!-- Customize your theme here. -->
     </style>
     <style name="main_devider">
-        <item name="android:background">#ffdfdfdf</item>
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">1.0px</item>
-
+    <item name="android:background">#ffdfdfdf</item>
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">1.0px</item>
     </style>
+
 </resources>

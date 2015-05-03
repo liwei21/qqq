@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/pinglun_iv_icon"
+        android:src="@drawable/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/pinglun_tv_name"
+        android:text="用户"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/pinglun_iv_icon"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/female"
+        android:layout_toRightOf="@+id/pinglun_tv_name"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/pinglun_tv_neirong"
+        android:layout_toRightOf="@+id/pinglun_iv_icon"
+        android:layout_below="@+id/pinglun_tv_name"
+        android:layout_alignLeft="@+id/pinglun_tv_name"
+        android:text="1111111111111111111111111111111111111111111111111111111111111111111111"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/pinglun_iv_neirong"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/pinglun_tv_neirong"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/pinglun_tv_time"
+
+        android:text="56分钟前"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="15dp"
+        android:layout_toRightOf="@+id/pinglun_iv_icon"
+        android:layout_below="@+id/pinglun_iv_neirong"
+        android:layout_alignLeft="@+id/pinglun_tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+
+    <LinearLayout
+        android:id="@+id/pinglun_ll_ping"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pinglun_tv_neirong"
+       android:layout_alignBottom="@+id/pinglun_tv_time"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentRight="true">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/replay"
+            android:layout_marginRight="5dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/pinglun_tv_ping"
+            android:text="评论"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/pinglun_ll_zan"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/pinglun_ll_ping"
+        android:layout_below="@+id/pinglun_tv_neirong"
+        android:layout_alignBottom="@+id/pinglun_tv_time"
+        android:layout_marginRight="10dp"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:src="@drawable/good"
+
+            android:layout_marginRight="5dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/pinglun_tv_zan"
+            android:text="赞"
+
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
