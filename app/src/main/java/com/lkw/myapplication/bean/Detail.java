@@ -7,8 +7,6 @@ import java.util.List;
  */
 
 ///天假了住宿
-
-
 public class Detail {
     private String name,summary,content,descUrl,supportMoney,targetMoney,supportCount,
             dayLeft,likeCount;

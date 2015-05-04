@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-               android:orientation="horizontal"
-               android:gravity="center_vertical"
-               android:background="#fff"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="#fff">
 
-    <com.lkw.myapplication.tools.ImageViewWithWidth
-        android:paddingLeft="10dp"
+
+
+    <com.lkw.myapplication.util.ImageViewWithWidth
+        android:id="@+id/item_image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:id="@+id/item_image"
-        android:src="@drawable/ic_launcher"
-        />
+        android:paddingLeft="10dp"
+        android:src="@drawable/ic_launcher" />
 
     <RelativeLayout
 
@@ -22,62 +22,65 @@
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_weight="2"
-        android:paddingRight="13dp"
-        >
-        <TextView
-            android:singleLine="true"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Large Text"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:textColor="#000"
-            android:id="@+id/item_title"
-            />
-        <TextView
-            android:singleLine="true"
-            android:layout_marginTop="5dp"
-           android:layout_below="@+id/item_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/item_info"
-            />
+        android:paddingRight="13dp">
 
-            <TextView
-                android:layout_marginBottom="10dp"
-                android:layout_alignParentBottom="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="价钱"
-                android:textColor="#f00"
-                android:id="@+id/item_price"
-                />
+
+
+
         <TextView
+            android:id="@+id/item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:singleLine="true"
+            android:text="Large Text"
+            android:textColor="#000"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/item_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_title"
+            android:layout_marginTop="5dp"
+            android:maxLines="2"
+            android:text="New Text" />
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:text="价钱"
+            android:textColor="#f00" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
             android:layout_toRightOf="@+id/item_price"
-            android:layout_marginBottom="10dp"
-            android:layout_alignParentBottom="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="起"/>
-            <TextView
-                android:layout_marginBottom="10dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="百分率"
-                android:textColor="#f00"
-                android:id="@+id/item_sale"
-                />
+            android:text="起" />
+
         <TextView
-            android:layout_toLeftOf="@+id/item_sale"
-            android:layout_marginBottom="10dp"
-            android:layout_alignParentBottom="true"
+            android:id="@+id/item_sale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="完成"/>
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:text="百分率"
+            android:textColor="#f00" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_toLeftOf="@+id/item_sale"
+            android:text="完成" />
 
     </RelativeLayout>
 
