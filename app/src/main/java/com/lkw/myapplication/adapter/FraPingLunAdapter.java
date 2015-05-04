@@ -1,11 +1,14 @@
 package com.lkw.myapplication.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.lkw.myapplication.R;
@@ -45,7 +48,7 @@ public class FraPingLunAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        ViewHolder holder;
+        final ViewHolder holder;
         if (view==null){
             holder=new ViewHolder();
             view= LayoutInflater.from(context).inflate(R.layout.fragment_pinglun_layout,viewGroup,false);
@@ -54,6 +57,7 @@ public class FraPingLunAdapter extends BaseAdapter {
             holder.neirong=(TextView)view.findViewById(R.id.pinglun_tv_neirong);
             holder.tupian=(ImageView)view.findViewById(R.id.pinglun_iv_neirong);
             holder.time=(TextView)view.findViewById(R.id.pinglun_tv_time);
+            holder.zan=(CheckBox)view.findViewById(R.id.zan);
             view.setTag(holder);
         }else {
             holder= (ViewHolder) view.getTag();
@@ -73,6 +77,13 @@ public class FraPingLunAdapter extends BaseAdapter {
 //        }
         holder.time.setText(pingLun.getTime());
 
+        holder.zan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                holder.zan.setTextColor(Color.RED);
+            }
+        });
+
 
         return view;
     }
@@ -81,5 +92,6 @@ public class FraPingLunAdapter extends BaseAdapter {
     class ViewHolder{
         private TextView name,neirong,time;
         private ImageView icon,tupian;
+        private CheckBox zan;
     }
 }

@@ -56,7 +56,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
     private List<String> imageUrlList;
 
     private Owner owner;
-    private List<Owner>ownerList;
+    private List<Owner> ownerList;
 
     private int index = 0;
     private Handler handler = new Handler() {
@@ -65,11 +65,11 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
             switch (msg.what) {
                 case 0:
                     progress_viewpager1.setAdapter(new MyAdapter(getSupportFragmentManager()));
-                    handler.sendEmptyMessageDelayed(1,2500);
+                    handler.sendEmptyMessageDelayed(1, 2500);
                     textSet();
                     break;
                 case 1:
-                    progress_viewpager1.setCurrentItem(index%imageUrlList.size());
+                    progress_viewpager1.setCurrentItem(index % imageUrlList.size());
                     handler.sendEmptyMessageDelayed(1, 2500);
                     index++;
                     break;
@@ -142,8 +142,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
     }
 
 
-
-//注释
+    //注释
     public void getInfo(final String url) {
         HttpGetUtils.getJSONString(url, new HttpGetUtils.OnNetStrDataListener() {
             @Override
@@ -196,7 +195,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
 
                     }
                     detail.setImageUrlArray(imageUrlList);
-                     detail.setSummary( obj2.getString("summary"));
+                    detail.setSummary(obj2.getString("summary"));
                     detail.setDescUrl(obj2.getString("descUrl"));
                     detail.setProgress(obj2.getInt("progress"));
                     detail.setSupportMoney(obj2.getString("supportMoney"));
@@ -206,7 +205,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
                     detail.setLikeCount(obj2.getString("likeCount"));
 
                     JSONObject obj3 = obj2.getJSONObject("owner");
-                    owner=new Owner();
+                    owner = new Owner();
                     owner.setHeaderUrl(obj3.getString("headerUrl"));
                     owner.setName(obj3.getString("name"));
                     owner.setIntro(obj3.getString("intro"));
@@ -227,7 +226,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         });
     }
 
-    public void textSet(){
+    public void textSet() {
         Detail tail = detailList.get(0);
         String name = tail.getName();
         text_ck_text.setText(name);
@@ -238,9 +237,9 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         author_dizhi.setText(owner.getProvince());
         progressBar.setProgress(tail.getProgress());
         progressbar_num_text.setText(tail.getProgress() + "%");
-        progressbar_num.setText(tail.getProgress()+"%");
-        progress.setText("￥"+tail.getSupportMoney());
-        progress_mubiao_Number.setText("￥"+tail.getTargetMoney());
+        progressbar_num.setText(tail.getProgress() + "%");
+        progress.setText("￥" + tail.getSupportMoney());
+        progress_mubiao_Number.setText("￥" + tail.getTargetMoney());
         progress_day_num.setText(tail.getDayLeft());
         image_zhichi_num.setText(tail.getSupportCount());
         image_like_num.setText(tail.getLikeCount());
@@ -249,7 +248,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.text_more:
                 Intent intent = new Intent(ProgressActivity.this, ProgressNewActivity.class);
                 startActivity(intent);
@@ -258,7 +257,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
                 showShare();
                 break;
             case R.id.fanhui:
-            finish();
+                finish();
                 break;
             case R.id.close:
                 Intent intent1 = new Intent(ProgressActivity.this, MainActivity.class);
@@ -267,6 +266,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
                 break;
         }
     }
+
     private void showShare() {
         ShareSDK.initSDK(this);
         UIHandler.prepare();
@@ -297,16 +297,17 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         oks.show(this);
     }
 
-    private void authorize(){
+    private void authorize() {
         ShareSDK.initSDK(this);
         Platform weibo = ShareSDK.getPlatform(this, QQ.NAME);
         weibo.setPlatformActionListener(this);
         weibo.showUser(null);//执行登录，登录后在回调里面获取用户资料
 //weibo.showUser(“3189087725”);//获取账号为“3189087725”的资料
     }
+
     @Override
     public void onComplete(Platform platform, int i, HashMap<String, Object> stringObjectHashMap) {
-        StringBuilder builder=new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         Set<Map.Entry<String, Object>> entries = stringObjectHashMap.entrySet();
         for (Map.Entry<String, Object> entry : entries) {
             builder.append(entry.getKey()).append(":").append(entry.getValue()).append("\n");
@@ -314,7 +315,6 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         }
         share.setText(builder.toString());
     }
-
 
 
     @Override
@@ -333,20 +333,19 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(ProgressActivity.this,"授权取消",Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProgressActivity.this, "授权取消", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
 
-
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
 
-        switch (i){
+        switch (i) {
             case R.id.rb_homepage:
 //                Log.d("hhhhhhhhhhhhhhh","点击");
-              getFragment(new FragmentProActivity());
+                getFragment(new FragmentProActivity());
                 break;
             case R.id.rb_comment:
                 getFragment(new FragmentPingLun());
@@ -357,10 +356,10 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         }
     }
 
-    public void getFragment(Fragment fragment){
+    public void getFragment(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.re_list,fragment).commit();
+        transaction.replace(R.id.re_list, fragment).commit();
     }
 
     class MyAdapter extends FragmentPagerAdapter {
