@@ -77,7 +77,10 @@
             android:name=".ProgressNewActivity"
             android:label="@string/title_activity_progress_new" >
         </activity>
-
+         <activity
+             android:name=".VP2_quanbu_Activity"
+             android:label="activity_vp2_quanbu">
+         </activity>
     </application>
 
 </manifest>

@@ -7,8 +7,8 @@
     android:background="#fff">
 
 
-
-    <com.lkw.myapplication.util.ImageViewWithWidth
+<!-- com.lkw.myapplication.util.ImageViewWithWidth-->
+    <ImageView
         android:id="@+id/item_image"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
