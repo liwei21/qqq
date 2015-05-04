@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
  * Created by LKW on 2015/5/2.
  */
 public class FragmentProActivity extends Fragment {
-    private String url = "http://api.zhongchou.cn/deal/getallitems?projectID=b3a4dee40de3b7280e4d41e2&v=2";
+    public static String url = "http://api.zhongchou.cn/deal/getallitems?projectID=b3a4dee40de3b7280e4d41e2&v=2";
 
     private ListView fragment_pro_list;
     private HuiBao huiBao;

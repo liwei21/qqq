@@ -24,6 +24,7 @@ import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
 import com.lkw.myapplication.MainActivity;
+import com.lkw.myapplication.ProgressActivity;
 import com.lkw.myapplication.R;
 import com.lkw.myapplication.adapter.HomeLVAdapter;
 import com.lkw.myapplication.tools.AutoTextView;
@@ -102,6 +103,7 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
         headPager.setAdapter(new HomeHeadVpAdapter(getFragmentManager()));
         handler.sendEmptyMessage(0);
 
+//        headPager.setOnPageChangeListener(this);
         autotxtv= (AutoTextView) view.findViewById(R.id.autotxtv);
         initAutoTextView();
 
@@ -254,9 +256,51 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
             case R.id.content_frame_back:
                 menu.toggle();
                 break;
+
         }
     }
 
+//    @Override
+//    public void onPageScrolled(int i, float v, int i2) {
+//        switch (i){
+//            case 0:
+//                ProgressActivity.url="http://api.zhongchou.cn/deal/getdetail?projectID=6a15daddef9ebc30fadac3dc&v=2";
+//                FragmentProActivity.url="http://api.zhongchou.cn/deal/getallitems?projectID=6a15daddef9ebc30fadac3dc&v=2";
+//
+//                break;
+//            case 1:
+//                ProgressActivity.url="";
+//                FragmentProActivity.url="";
+//
+//                break;
+//            case 2:
+//                ProgressActivity.url="";
+//                FragmentProActivity.url="";
+//
+//                break;
+//            case 3:
+//                ProgressActivity.url="";
+//                FragmentProActivity.url="";
+//
+//                break;
+//            case 4:
+//                ProgressActivity.url="";
+//                FragmentProActivity.url="";
+//
+//                break;
+//
+//        }
+//    }
+//
+//    @Override
+//    public void onPageSelected(int i) {
+//
+//    }
+//
+//    @Override
+//    public void onPageScrollStateChanged(int i) {
+//
+//    }
 
 
     class HomeCircleImgAdapter extends FragmentPagerAdapter {

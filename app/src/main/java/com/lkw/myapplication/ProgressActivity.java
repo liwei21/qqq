@@ -48,7 +48,7 @@ import m.framework.utils.UIHandler;
 
 public class ProgressActivity extends ActionBarActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, PlatformActionListener {
 
-    private String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=2";
+    public static String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=2";
 
     private Detail detail;
     public static List<Detail> detailList;
@@ -95,7 +95,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
     private RadioGroup rg_homepage;
     private TextView share;
     private TextView fanhui;
-    private TextView close;
+    public static TextView close;
 
 
     @Override

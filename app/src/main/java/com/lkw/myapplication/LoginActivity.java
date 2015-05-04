@@ -28,7 +28,8 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
     private Button login_rg_btn;
     private TextView login_register;
     private Button login_btn;
-    private ChatService.ChatController controller;
+    public static ChatService.ChatController controller;
+    public static String userJID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +74,12 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
             case R.id.login_btn:
                 String username=login_username.getText().toString();
                 String password = login_yanzhenma.getText().toString();
-                if (controller.Register(username,password))
+
+                userJID = controller.login(username, password);
+                if (userJID !=null)
                 {
                     intent.setClass(LoginActivity.this,MainActivity.class);
+                    intent.putExtra("userJID", userJID);
                     startActivity(intent);
                     finish();
                 }else {

@@ -68,7 +68,6 @@
         android:id="@+id/slid_zhichi"
 
         android:orientation="horizontal"
-        android:onClick="OnClick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -90,7 +89,6 @@
             android:id="@+id/slid_xihuan"
             android:layout_marginTop="15dp"
             android:orientation="horizontal"
-            android:onClick="OnClick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
@@ -111,7 +109,6 @@
             android:id="@+id/slid_faqi"
             android:layout_marginTop="15dp"
             android:orientation="horizontal"
-            android:onClick="OnClick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
@@ -132,7 +129,6 @@
             android:id="@+id/slid_haoyou"
             android:layout_marginTop="15dp"
             android:orientation="horizontal"
-            android:onClick="OnClick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
@@ -185,7 +181,6 @@
             android:id="@+id/slid_lishi"
             android:layout_marginTop="15dp"
             android:orientation="horizontal"
-            android:onClick="OnClick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
@@ -232,7 +227,6 @@
     <LinearLayout
         android:id="@+id/slid_xinshou"
         android:layout_width="wrap_content"
-        android:onClick="OnClick"
         android:layout_marginLeft="40dp"
         android:layout_height="wrap_content">
         <ImageView
