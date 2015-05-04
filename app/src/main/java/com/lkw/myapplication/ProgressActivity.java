@@ -149,7 +149,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
             @Override
             public void successed(String result) {
                 try {
-                    Log.d("333333333333333333", "成功");
+//                    Log.d("333333333333333333", "成功");
                     JSONObject obj1 = new JSONObject(result);
                     detailList = new ArrayList<Detail>();
                     JSONObject obj2 = obj1.getJSONObject("data");
@@ -191,7 +191,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
 
 
                         imageUrlList.add(newImageUrl);
-                        Log.d("000000000000000000000000000", newImageUrl + "\n");
+//                        Log.d("000000000000000000000000000", newImageUrl + "\n");
                         count++;
 
                     }
@@ -222,7 +222,7 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
 
             @Override
             public void failed() {
-                Log.d("4444444444444444444444444", "失败");
+//                Log.d("4444444444444444444444444", "失败");
             }
         });
     }
