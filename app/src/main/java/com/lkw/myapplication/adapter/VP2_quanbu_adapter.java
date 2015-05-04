@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lkw.myapplication.R;
@@ -56,18 +57,18 @@ public class VP2_quanbu_adapter extends BaseAdapter{
         holder.item_price.setText("￥"+quanbu_beans.getFloorPrice());
         holder.item_sale.setText(quanbu_beans.getProgress()+"%");
         BitmapUtils utils=new BitmapUtils(context);
-        utils.display(holder.item_image,quanbu_beans.getImageUrl());
+          utils.display(holder.item_image,quanbu_beans.getImageUrl());
         return convertView;
 }
 class ViewHolder{
 
     private TextView item_title,item_info,item_price,item_sale;
-    private ImageViewWithWidth item_image;
+    private ImageView item_image;
     public ViewHolder(View view){
         item_title= (TextView) view.findViewById(R.id.item_title);
         item_info= (TextView) view.findViewById(R.id.item_info);
         item_price= (TextView) view.findViewById(R.id.item_price);
-        item_image= (ImageViewWithWidth) view.findViewById(R.id.item_image);
+        item_image= (ImageView) view.findViewById(R.id.item_image);
         item_sale= (TextView) view.findViewById(R.id.item_sale);
     }
     }

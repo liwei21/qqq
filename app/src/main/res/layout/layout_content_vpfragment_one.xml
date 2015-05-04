@@ -16,8 +16,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
-            android:onClick="homecircleOnclick"
             android:src="@drawable/cate_quanbu"
+
             />
 
         <ImageButton
@@ -61,6 +61,7 @@
             android:layout_marginLeft="33dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="toQuanbu"
             android:text="全部"/>
         <TextView
             android:layout_marginLeft="68dp"
