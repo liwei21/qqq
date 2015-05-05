@@ -107,14 +107,9 @@
             android:name=".AddFriendActivity"
             android:label="@string/title_activity_add_friend" >
         </activity>
-<<<<<<< HEAD
-=======
-         <activity
-             android:name=".VP2_quanbu_Activity"
-             android:label="@string/listView_activity_vp2_quanbu">
-         </activity>
 
->>>>>>> 154875e3466f389f4908367608675206a2982f6b
+
+
     </application>
 
 </manifest>
