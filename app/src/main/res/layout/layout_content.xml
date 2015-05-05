@@ -16,8 +16,9 @@
 
         <ImageView
             android:id="@+id/content_frame_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:scaleType="centerInside"
+            android:layout_height="30dp"
             android:onClick="onClickListen"
             android:src="@drawable/zc_login_name"
             />
@@ -47,6 +48,13 @@
             android:layout_toLeftOf="@+id/main_search"
             android:layout_toStartOf="@+id/main_search"
             android:src="@drawable/search_navi"/>
+        <ImageView
+            android:id="@+id/email"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/emaila34"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
     <com.handmark.pulltorefresh.library.PullToRefreshScrollView

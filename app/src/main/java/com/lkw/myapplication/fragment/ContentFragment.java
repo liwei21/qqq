@@ -23,6 +23,7 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
+import com.lkw.myapplication.LoginActivity;
 import com.lkw.myapplication.MainActivity;
 import com.lkw.myapplication.ProgressActivity;
 import com.lkw.myapplication.R;
@@ -45,7 +46,6 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
     private SlidingMenu menu;
     private View view;
     private AutoTextView autotxtv;
-    private static ImageView content_frame_back;
     private ViewPager headPager,circleimg_pager;
     private ImageView[] imgvDots = new ImageView[5];
     private ImageView[] imgvTwoDots=new ImageView[2];
@@ -78,6 +78,8 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
     private PullToRefreshScrollView refresh;
     private List<HomeLvData> curList=new ArrayList<>();
     private HomeLVAdapter lvAdapter;
+    private ImageView email;
+    private ImageView content_frame_back;
 
     public ContentFragment() {
         this.menu = MainActivity.sm;
@@ -115,6 +117,18 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
         getNetWorkData();
         lvAdapter=new HomeLVAdapter(curList,getActivity());
         listView.setAdapter(lvAdapter);
+        email = (ImageView) view.findViewById(R.id.email);
+
+        String userJID = LoginActivity.userJID;
+        if (userJID!=null){
+            email.setVisibility(View.VISIBLE);
+            content_frame_back.setImageResource(R.drawable.default_6);
+        }else {
+            email.setVisibility(View.INVISIBLE);
+            content_frame_back.setImageResource(R.drawable.zc_login_name);
+        }
+
+
         return view;
     }
 
