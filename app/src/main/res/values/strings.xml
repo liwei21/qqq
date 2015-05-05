@@ -16,5 +16,7 @@
     <string name="title_activity_my_like">MyLikeActivity</string>
     <string name="title_activity_usercenter">UsercenterActivity</string>
     <string name="title_activity_usercenter_info">UsercenterInfoActivity</string>
+    <string name="title_activity_my_support">MySupportActivity</string>
+    <string name="title_activity_rockie_help">RockieHelpActivity</string>
 
 </resources>

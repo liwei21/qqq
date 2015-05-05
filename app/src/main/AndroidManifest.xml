@@ -26,8 +26,6 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-=======
-            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -63,51 +61,47 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" >
-        </activity>
+            android:label="@string/title_activity_login" />
         <activity
             android:name=".RegiserActivity"
-            android:label="@string/title_activity_regiser" >
-        </activity>
+            android:label="@string/title_activity_regiser" />
         <activity
             android:name=".ProgressActivity"
-            android:label="@string/title_activity_progress_project_item" >
-        </activity>
+            android:label="@string/title_activity_progress_project_item" />
         <activity
             android:name=".ProgressNewActivity"
-            android:label="@string/title_activity_progress_new" >
-        </activity>
+            android:label="@string/title_activity_progress_new" />
         <activity
             android:name=".VP2_quanbu_Activity"
-            android:label="activity_vp2_quanbu" >
-        </activity>
+            android:label="activity_vp2_quanbu" />
         <activity
             android:name=".BrowsingActivity"
-            android:label="@string/title_activity_browsing" >
-        </activity>
+            android:label="@string/title_activity_browsing" />
         <activity
             android:name=".DeliveryAddressActivity"
-            android:label="@string/title_activity_delivery_address" >
-        </activity>
+            android:label="@string/title_activity_delivery_address" />
         <activity
             android:name=".FriendActivity"
-            android:label="@string/title_activity_friend" >
-        </activity>
+            android:label="@string/title_activity_friend" />
         <activity
             android:name=".MyIntentActivity"
-            android:label="@string/title_activity_my_intent" >
-        </activity>
+            android:label="@string/title_activity_my_intent" />
         <activity
             android:name=".MyLikeActivity"
-            android:label="@string/title_activity_my_like" >
-        </activity>
+            android:label="@string/title_activity_my_like" />
         <activity
             android:name=".UsercenterActivity"
-            android:label="@string/title_activity_usercenter" >
-        </activity>
+            android:label="@string/title_activity_usercenter" />
         <activity
             android:name=".UsercenterInfoActivity"
-            android:label="@string/title_activity_usercenter_info" >
+            android:label="@string/title_activity_usercenter_info" />
+        <activity
+            android:name=".MySupportActivity"
+            android:label="@string/title_activity_my_support" >
+        </activity>
+        <activity
+            android:name=".RockieHelpActivity"
+            android:label="@string/title_activity_rockie_help" >
         </activity>
     </application>
 
