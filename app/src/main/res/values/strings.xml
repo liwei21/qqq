@@ -18,5 +18,6 @@
     <string name="title_activity_usercenter_info">UsercenterInfoActivity</string>
     <string name="title_activity_my_support">MySupportActivity</string>
     <string name="title_activity_rockie_help">RockieHelpActivity</string>
+    <string name="title_activity_add_friend">AddFriendActivity</string>
 
 </resources>

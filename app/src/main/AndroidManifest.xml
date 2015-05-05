@@ -103,6 +103,10 @@
             android:name=".RockieHelpActivity"
             android:label="@string/title_activity_rockie_help" >
         </activity>
+        <activity
+            android:name=".AddFriendActivity"
+            android:label="@string/title_activity_add_friend" >
+        </activity>
     </application>
 
 </manifest>

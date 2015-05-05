@@ -17,7 +17,9 @@ import com.lkw.myapplication.LoginActivity;
 import com.lkw.myapplication.MainActivity;
 import com.lkw.myapplication.MyIntentActivity;
 import com.lkw.myapplication.MyLikeActivity;
+import com.lkw.myapplication.MySupportActivity;
 import com.lkw.myapplication.R;
+import com.lkw.myapplication.RockieHelpActivity;
 import com.lkw.myapplication.UsercenterActivity;
 import com.lkw.myapplication.UsercenterInfoActivity;
 import com.lkw.myapplication.service.ChatService;
@@ -101,7 +103,8 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                     startActivity(intent);
                     break;
                 case R.id.slid_xinshou:
-
+                    intent.setClass(getActivity(), RockieHelpActivity.class);
+                    startActivity(intent);
                     break;
             }
         } else {
@@ -109,8 +112,10 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                 case R.id.head_real_login:
                     intent.setClass(getActivity(), UsercenterInfoActivity.class);
                     startActivity(intent);
+                    break;
                 case R.id.slid_zhichi:
-
+                    intent.setClass(getActivity(), MySupportActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.slid_xihuan:
                     intent.setClass(getActivity(), MyLikeActivity.class);
@@ -137,7 +142,8 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                     startActivity(intent);
                     break;
                 case R.id.slid_xinshou:
-
+                    intent.setClass(getActivity(), RockieHelpActivity.class);
+                    startActivity(intent);
                     break;
             }
         }
