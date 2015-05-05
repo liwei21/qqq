@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ScrollView;
@@ -148,6 +149,25 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
         listView = (ListView) view.findViewById(R.id.main_list);
         getNetWorkData();
         lvAdapter=new HomeLVAdapter(curList,getActivity());
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent =new Intent(getActivity(),ProgressActivity.class);
+                HomeLvData data = curList.get(position);
+                String IDurl= data.getProjectID();
+                String   url="http://api.zhongchou.cn/deal/getdetail?projectID="+IDurl+"&v=2";
+                String url1="http://api.zhongchou.cn/deal/getallitems?projectID="+IDurl+"&v=2";
+                String url2="http://api.zhongchou.cn/comment/getlist?offset=0&count=10&projectID="+IDurl+"&v=2";
+                String url3="http://api.zhongchou.cn/deal/getprocess?projectID="+IDurl+"&v=2";
+                Bundle bundle =new Bundle();
+                bundle.putString("url",url);
+                bundle.putString("url1",url1);
+                bundle.putString("url2",url2);
+                bundle.putString("url3",url3);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
         listView.setAdapter(lvAdapter);
         email = (ImageView) view.findViewById(R.id.email);
 
@@ -180,12 +200,14 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
                     for(int i=0;i<dataArr.length();i++){
                         JSONObject dataObj=dataArr.getJSONObject(i);
                         HomeLvData dataBean=new HomeLvData();
+                        dataBean.setProjectID(dataObj.getString("projectID"));
                         dataBean.setImageUrl(dataObj.getString("imageUrl"));
                         dataBean.setName(dataObj.getString("name"));
                         dataBean.setSummary(dataObj.getString("summary"));
                         dataBean.setFloorPrice(dataObj.getString("floorPrice"));
                         dataBean.setProgress(dataObj.getInt("progress")+"");
                         curList.add(dataBean);
+
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
