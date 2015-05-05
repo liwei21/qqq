@@ -48,18 +48,15 @@ import m.framework.utils.UIHandler;
 
 public class ProgressActivity extends ActionBarActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, PlatformActionListener {
 
-<<<<<<< HEAD
-    public static String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=2";
-=======
-//    private String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=2";
-//        private String url="http://api.zhongchou.cn/deal/getdetail?projectID=7a450e34f751023b2e817014&sort=sb&v=2";
-    private String url;
-    private  String url1;
-    private    String url2;
-    private   String url3;
-    private  int count;
 
->>>>>>> 154875e3466f389f4908367608675206a2982f6b
+    //    private String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=2";
+//        private String url="http://api.zhongchou.cn/deal/getdetail?projectID=7a450e34f751023b2e817014&sort=sb&v=2";
+    public  static String url;
+    private String url1;
+    private String url2;
+    private String url3;
+    private int count;
+
 
     private Detail detail;
     public static List<Detail> detailList;
@@ -145,32 +142,26 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         fanhui.setOnClickListener(this);
         close = (TextView) findViewById(R.id.close);
         close.setOnClickListener(this);
-        Intent intent =this. getIntent();
-        Bundle bundle =intent.getExtras();
+        Intent intent = this.getIntent();
+        Bundle bundle = intent.getExtras();
 
         url = bundle.getString("url");
         url1 = bundle.getString("url1");
-        url2= bundle.getString("url2");
+        url2 = bundle.getString("url2");
         url3 = bundle.getString("url3");
-        count =bundle.getInt("count");
-        if(count==1){
-           close.setVisibility(View.INVISIBLE);
+        count = bundle.getInt("count");
+        if (count == 1) {
+            close.setVisibility(View.INVISIBLE);
         }
         getInfo();
-        FragmentProActivity.url=url1;
+        FragmentProActivity.url = url1;
         getFragment(new FragmentProActivity());
     }
 
 
-<<<<<<< HEAD
-    //注释
-    public void getInfo(final String url) {
-=======
-//注释
     public void getInfo() {
 
 
->>>>>>> 154875e3466f389f4908367608675206a2982f6b
         HttpGetUtils.getJSONString(url, new HttpGetUtils.OnNetStrDataListener() {
             @Override
             public void successed(String result) {
@@ -372,58 +363,54 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
 
         switch (i) {
             case R.id.rb_homepage:
-//                Log.d("hhhhhhhhhhhhhhh","点击");
-<<<<<<< HEAD
+
                 getFragment(new FragmentProActivity());
-=======
-               FragmentProActivity.url=url1;
 
-              getFragment(new FragmentProActivity());
+                FragmentProActivity.url = url1;
 
->>>>>>> 154875e3466f389f4908367608675206a2982f6b
+                getFragment(new FragmentProActivity());
+
+
                 break;
             case R.id.rb_comment:
-                FragmentPingLun.url=url2;
-                Log.d("---------------url1",url2);
+                FragmentPingLun.url = url2;
+                Log.d("---------------url1", url2);
 
                 getFragment(new FragmentPingLun());
                 break;
             case R.id.rb_dynamic:
-                FragmentDongTai.url=url3;
-                Log.d("---------------url1",url3);
+                FragmentDongTai.url = url3;
+                Log.d("---------------url1", url3);
 
                 getFragment(new FragmentDongTai());
                 break;
         }
     }
 
-<<<<<<< HEAD
-    public void getFragment(Fragment fragment) {
-=======
 
 
-    public void getFragment(Fragment fragment){
->>>>>>> 154875e3466f389f4908367608675206a2982f6b
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.re_list, fragment).commit();
+
+        public void getFragment (Fragment fragment){
+            FragmentManager manager = getSupportFragmentManager();
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.replace(R.id.re_list, fragment).commit();
+        }
+
+        class MyAdapter extends FragmentPagerAdapter {
+            public MyAdapter(FragmentManager fm) {
+                super(fm);
+            }
+
+            @Override
+            public Fragment getItem(int position) {
+                return Fragment_Detail.getFragment(position);
+            }
+
+            @Override
+            public int getCount() {
+                return imageUrlList.size();
+            }
+        }
+
+
     }
-
-    class MyAdapter extends FragmentPagerAdapter {
-        public MyAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return Fragment_Detail.getFragment(position);
-        }
-
-        @Override
-        public int getCount() {
-            return imageUrlList.size();
-        }
-    }
-
-
-}
