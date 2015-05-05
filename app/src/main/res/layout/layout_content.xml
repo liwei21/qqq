@@ -244,16 +244,19 @@
                         android:orientation="vertical">
 
                         <ImageView
+                            android:id="@+id/xinQite"
                             android:layout_width="fill_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
                             android:background="@drawable/bottomimage2"
-                            android:scaleType="centerCrop"/>
+                            android:scaleType="centerCrop"
+                            />
 
 
                         <View style="@style/main_devider"/>
 
                         <ImageView
+                            android:id="@+id/zuiduozhichi"
                             android:layout_width="fill_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"

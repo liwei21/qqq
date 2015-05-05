@@ -1,5 +1,6 @@
 package com.lkw.myapplication.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -81,14 +82,45 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
     private ImageView email;
     private ImageView content_frame_back;
 
+
     public ContentFragment() {
         this.menu = MainActivity.sm;
     }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.layout_content, container, false);
+
+         view.findViewById(R.id.xinQite).setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent =new Intent(ContentFragment.this.getActivity(),ProgressActivity.class);
+                 Bundle bundle =new Bundle();
+                 bundle.putString("url","http://api.zhongchou.cn/deal/getdetail?projectID=7a450e34f751023b2e817014&sort=sb&v=2");
+                 bundle.putString("url1","http://api.zhongchou.cn/deal/getallitems?projectID=7a450e34f751023b2e817014&sort=sb&v=2");
+                 bundle.putString("url2","http://api.zhongchou.cn/comment/getlist?offset=0&count=10&projectID=7a450e34f751023b2e817014&sort=sb&v=2");
+                 bundle.putString("url3", "http://api.zhongchou.cn/deal/getprocess?projectID=7a450e34f751023b2e817014&sort=sb&v=2");
+                 bundle.putInt("count",1);
+                 intent.putExtras(bundle);
+                 startActivity(intent);
+             }
+         });
+         view.findViewById(R.id.zuiduozhichi).setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent =new Intent(ContentFragment.this.getActivity(),ProgressActivity.class);
+                 Bundle bundle =new Bundle();
+                  bundle.putString("url","http://api.zhongchou.cn/deal/getdetail?projectID=22a2112994f8d2d030eb2efd&sort=sb&v=2");
+                  bundle.putString("url1","http://api.zhongchou.cn/deal/getallitems?projectID=22a2112994f8d2d030eb2efd&sort=sb&v=2");
+                 bundle.putString("url2","http://api.zhongchou.cn/comment/getlist?offset=0&count=10&projectID=22a2112994f8d2d030eb2efd&sort=sb&v=2");
+                  bundle.putString("url3","http://api.zhongchou.cn/deal/getprocess?projectID=22a2112994f8d2d030eb2efd&sort=sb&v=2");
+                  bundle.putInt("count",1);
+                 intent.putExtras(bundle);
+                 startActivity(intent);
+             }
+         });
+
         headPager = (ViewPager) view.findViewById(R.id.head_pager);
         circleimg_pager = (ViewPager) view.findViewById(R.id.circleimg_pager);
 
