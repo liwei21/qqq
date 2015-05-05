@@ -1,5 +1,6 @@
 package com.lkw.myapplication.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -23,6 +24,7 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
+import com.lkw.myapplication.LoginActivity;
 import com.lkw.myapplication.MainActivity;
 import com.lkw.myapplication.ProgressActivity;
 import com.lkw.myapplication.R;
@@ -45,7 +47,6 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
     private SlidingMenu menu;
     private View view;
     private AutoTextView autotxtv;
-    private static ImageView content_frame_back;
     private ViewPager headPager,circleimg_pager;
     private ImageView[] imgvDots = new ImageView[5];
     private ImageView[] imgvTwoDots=new ImageView[2];
@@ -78,6 +79,9 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
     private PullToRefreshScrollView refresh;
     private List<HomeLvData> curList=new ArrayList<>();
     private HomeLVAdapter lvAdapter;
+    private ImageView email;
+    private ImageView content_frame_back;
+
 
     public ContentFragment() {
         this.menu = MainActivity.sm;
@@ -85,8 +89,38 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.layout_content, container, false);
+
+         view.findViewById(R.id.xinQite).setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent =new Intent(ContentFragment.this.getActivity(),ProgressActivity.class);
+                 Bundle bundle =new Bundle();
+                 bundle.putString("url","http://api.zhongchou.cn/deal/getdetail?projectID=7a450e34f751023b2e817014&sort=sb&v=2");
+                 bundle.putString("url1","http://api.zhongchou.cn/deal/getallitems?projectID=7a450e34f751023b2e817014&sort=sb&v=2");
+                 bundle.putString("url2","http://api.zhongchou.cn/comment/getlist?offset=0&count=10&projectID=7a450e34f751023b2e817014&sort=sb&v=2");
+                 bundle.putString("url3", "http://api.zhongchou.cn/deal/getprocess?projectID=7a450e34f751023b2e817014&sort=sb&v=2");
+                 bundle.putInt("count",1);
+                 intent.putExtras(bundle);
+                 startActivity(intent);
+             }
+         });
+         view.findViewById(R.id.zuiduozhichi).setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Intent intent =new Intent(ContentFragment.this.getActivity(),ProgressActivity.class);
+                 Bundle bundle =new Bundle();
+                  bundle.putString("url","http://api.zhongchou.cn/deal/getdetail?projectID=22a2112994f8d2d030eb2efd&sort=sb&v=2");
+                  bundle.putString("url1","http://api.zhongchou.cn/deal/getallitems?projectID=22a2112994f8d2d030eb2efd&sort=sb&v=2");
+                 bundle.putString("url2","http://api.zhongchou.cn/comment/getlist?offset=0&count=10&projectID=22a2112994f8d2d030eb2efd&sort=sb&v=2");
+                  bundle.putString("url3","http://api.zhongchou.cn/deal/getprocess?projectID=22a2112994f8d2d030eb2efd&sort=sb&v=2");
+                  bundle.putInt("count",1);
+                 intent.putExtras(bundle);
+                 startActivity(intent);
+             }
+         });
+
         headPager = (ViewPager) view.findViewById(R.id.head_pager);
         circleimg_pager = (ViewPager) view.findViewById(R.id.circleimg_pager);
 
@@ -115,6 +149,18 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
         getNetWorkData();
         lvAdapter=new HomeLVAdapter(curList,getActivity());
         listView.setAdapter(lvAdapter);
+        email = (ImageView) view.findViewById(R.id.email);
+
+        String userJID = LoginActivity.userJID;
+        if (userJID!=null){
+            email.setVisibility(View.VISIBLE);
+            content_frame_back.setImageResource(R.drawable.default_6);
+        }else {
+            email.setVisibility(View.INVISIBLE);
+            content_frame_back.setImageResource(R.drawable.zc_login_name);
+        }
+
+
         return view;
     }
 
