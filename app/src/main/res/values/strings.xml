@@ -4,10 +4,17 @@
     <string name="app_name">TestDemo</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_regiser">RegiserActivity</string>
     <string name="title_activity_progress_project_item">progress_project_itemActivity</string>
     <string name="title_activity_progress_new">ProgressNewActivity</string>
     <string name="listView_activity_vp2_quanbu">VP2_quanbu_Activity</string>
+    <string name="title_activity_browsing">BrowsingActivity</string>
+    <string name="title_activity_delivery_address">DeliveryAddressActivity</string>
+    <string name="title_activity_friend">FriendActivity</string>
+    <string name="title_activity_my_intent">MyIntentActivity</string>
+    <string name="title_activity_my_like">MyLikeActivity</string>
+    <string name="title_activity_usercenter">UsercenterActivity</string>
+    <string name="title_activity_usercenter_info">UsercenterInfoActivity</string>
+
 </resources>

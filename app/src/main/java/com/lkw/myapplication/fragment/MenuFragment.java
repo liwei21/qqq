@@ -10,9 +10,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.lkw.myapplication.BrowsingActivity;
+import com.lkw.myapplication.DeliveryAddressActivity;
+import com.lkw.myapplication.FriendActivity;
 import com.lkw.myapplication.LoginActivity;
 import com.lkw.myapplication.MainActivity;
+import com.lkw.myapplication.MyIntentActivity;
+import com.lkw.myapplication.MyLikeActivity;
 import com.lkw.myapplication.R;
+import com.lkw.myapplication.UsercenterActivity;
+import com.lkw.myapplication.UsercenterInfoActivity;
 import com.lkw.myapplication.service.ChatService;
 
 /**
@@ -90,7 +97,8 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
                     startActivity(intent);
                     break;
                 case R.id.slid_shezhi:
-
+                    intent.setClass(getActivity(), UsercenterActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.slid_xinshou:
 
@@ -99,28 +107,34 @@ public class MenuFragment extends Fragment implements View.OnClickListener {
         } else {
             switch (view.getId()) {
                 case R.id.head_real_login:
-                    intent.setClass(getActivity(), LoginActivity.class);
+                    intent.setClass(getActivity(), UsercenterInfoActivity.class);
                     startActivity(intent);
                 case R.id.slid_zhichi:
 
                     break;
                 case R.id.slid_xihuan:
-
+                    intent.setClass(getActivity(), MyLikeActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.slid_faqi:
-
+                    intent.setClass(getActivity(), MyIntentActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.slid_haoyou:
-
+                    intent.setClass(getActivity(), FriendActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.slid_dizhi:
-
+                    intent.setClass(getActivity(), DeliveryAddressActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.slid_lishi:
-
+                    intent.setClass(getActivity(), BrowsingActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.slid_shezhi:
-
+                    intent.setClass(getActivity(), UsercenterActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.slid_xinshou:
 

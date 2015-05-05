@@ -2,10 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.lkw.myapplication" >
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -13,11 +11,12 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
-    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <!-- 蓝牙分享所需的权限 -->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -37,28 +36,31 @@
         </activity>
         <activity
             android:name="cn.sharesdk.framework.ShareSDKUIShell"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" >
             <intent-filter>
                 <data android:scheme="tencent100371282" />
+
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".service.ChatService"
             android:enabled="true"
             android:exported="true" />
-        <!--微信分享回调 -->
+        <!-- 微信分享回调 -->
         <activity
             android:name="com.lkw.test.wxapi.WXEntryActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
@@ -67,20 +69,46 @@
             android:name=".RegiserActivity"
             android:label="@string/title_activity_regiser" >
         </activity>
-
         <activity
             android:name=".ProgressActivity"
             android:label="@string/title_activity_progress_project_item" >
-
         </activity>
         <activity
             android:name=".ProgressNewActivity"
             android:label="@string/title_activity_progress_new" >
         </activity>
-         <activity
-             android:name=".VP2_quanbu_Activity"
-             android:label="activity_vp2_quanbu">
-         </activity>
+        <activity
+            android:name=".VP2_quanbu_Activity"
+            android:label="activity_vp2_quanbu" >
+        </activity>
+        <activity
+            android:name=".BrowsingActivity"
+            android:label="@string/title_activity_browsing" >
+        </activity>
+        <activity
+            android:name=".DeliveryAddressActivity"
+            android:label="@string/title_activity_delivery_address" >
+        </activity>
+        <activity
+            android:name=".FriendActivity"
+            android:label="@string/title_activity_friend" >
+        </activity>
+        <activity
+            android:name=".MyIntentActivity"
+            android:label="@string/title_activity_my_intent" >
+        </activity>
+        <activity
+            android:name=".MyLikeActivity"
+            android:label="@string/title_activity_my_like" >
+        </activity>
+        <activity
+            android:name=".UsercenterActivity"
+            android:label="@string/title_activity_usercenter" >
+        </activity>
+        <activity
+            android:name=".UsercenterInfoActivity"
+            android:label="@string/title_activity_usercenter_info" >
+        </activity>
     </application>
 
 </manifest>
