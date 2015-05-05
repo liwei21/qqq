@@ -79,8 +79,9 @@
         </activity>
          <activity
              android:name=".VP2_quanbu_Activity"
-             android:label="activity_vp2_quanbu">
+             android:label="@string/listView_activity_vp2_quanbu">
          </activity>
+
     </application>
 
 </manifest>

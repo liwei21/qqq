@@ -29,7 +29,8 @@ import java.util.List;
  * Created by LKW on 2015/5/3.
  */
 public class FragmentPingLun extends Fragment {
-    private String url="http://api.zhongchou.cn/comment/getlist?offset=0&count=10&projectID=b3a4dee40de3b7280e4d41e2&v=2";
+//    private String url="http://api.zhongchou.cn/comment/getlist?offset=0&count=10&projectID=b3a4dee40de3b7280e4d41e2&v=2";
+    public static  String url;
     private ArrayList<PingLun> pinglunList;
     private PingLun pingLun;
     private PingOwner owner;
