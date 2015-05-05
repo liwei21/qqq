@@ -4,11 +4,20 @@ package Bean;
  * Created by aaa on 15-5-3.
  */
 public class HomeLvData {
+    private String projectID;
     private String imageUrl;
     private String name;
     private String summary;
     private String floorPrice;
     private String progress;
+
+    public String getProjectID() {
+        return projectID;
+    }
+
+    public void setProjectID(String projectID) {
+        this.projectID = projectID;
+    }
 
     public String getImageUrl() {
         return imageUrl;
