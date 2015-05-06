@@ -124,6 +124,8 @@ public class HomeCircleImgFragment extends Fragment {
                 public void onClick(View v) {
                     Intent intent =new Intent(HomeCircleImgFragment.this.getActivity(),VP2_quanbu_Activity.class);
                     Bundle bundle = new Bundle();
+//                    sddsdsdssd
+//                    sdsd
                     switch (v.getId()){
                         case R.id.qita:
                             bundle.putString("url","&categoryID=4a9d39f428daf6f73b6bd52f&sort=sb&v=1");
