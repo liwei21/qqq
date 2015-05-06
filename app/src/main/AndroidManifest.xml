@@ -110,6 +110,15 @@
 
 
 
+
+        <activity
+            android:name=".SearchAddActivity"
+            android:label="@string/title_activity_search_add" >
+        </activity>
+        <activity
+            android:name=".ChatActivity"
+            android:label="@string/title_activity_chat" >
+        </activity>
     </application>
 
 </manifest>

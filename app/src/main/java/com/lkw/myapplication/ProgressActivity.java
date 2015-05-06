@@ -49,13 +49,14 @@ import m.framework.utils.UIHandler;
 public class ProgressActivity extends ActionBarActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, PlatformActionListener {
 
 
-    //    private String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=2";
+//    public static String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=2";
+//    private String url = "http://api.zhongchou.cn/deal/getdetail?projectID=b3a4dee40de3b7280e4d41e2&v=2";
 //        private String url="http://api.zhongchou.cn/deal/getdetail?projectID=7a450e34f751023b2e817014&sort=sb&v=2";
-    public  static String url;
-    private String url1;
-    private String url2;
-    private String url3;
-    private int count;
+    public static String url;
+    private  String url1;
+    private    String url2;
+    private   String url3;
+    private  int count;
 
 
     private Detail detail;
@@ -153,13 +154,15 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
         if (count == 1) {
             close.setVisibility(View.INVISIBLE);
         }
-        getInfo();
         FragmentProActivity.url = url1;
+        getInfo(url);
+        FragmentProActivity.url=url1;
         getFragment(new FragmentProActivity());
     }
 
 
-    public void getInfo() {
+    //注释
+    public void getInfo(final String url) {
 
 
         HttpGetUtils.getJSONString(url, new HttpGetUtils.OnNetStrDataListener() {
@@ -369,6 +372,9 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
                 FragmentProActivity.url = url1;
 
                 getFragment(new FragmentProActivity());
+//                Log.d("hhhhhhhhhhhhhhh","点击");
+
+               FragmentProActivity.url=url1;
 
 
                 break;
@@ -386,6 +392,8 @@ public class ProgressActivity extends ActionBarActivity implements View.OnClickL
                 break;
         }
     }
+
+
 
 
 

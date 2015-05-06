@@ -19,5 +19,7 @@
     <string name="title_activity_my_support">MySupportActivity</string>
     <string name="title_activity_rockie_help">RockieHelpActivity</string>
     <string name="title_activity_add_friend">AddFriendActivity</string>
+    <string name="title_activity_search_add">SearchAddActivity</string>
+    <string name="title_activity_chat">ChatActivity</string>
 
 </resources>

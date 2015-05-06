@@ -25,8 +25,8 @@ import java.util.ArrayList;
  * Created by LKW on 2015/5/3.
  */
 public class FragmentDongTai extends Fragment {
-
-
+//    public static String url="http://api.zhongchou.cn/deal/getprocess?projectID=b3a4dee40de3b7280e4d41e2&v=2";
+//    private String url="http://api.zhongchou.cn/deal/getprocess?projectID=b3a4dee40de3b7280e4d41e2&v=2";
     public static String url;
     private ListView dongtai_listview;
     private ArrayList<DongTai> dongTaiList;

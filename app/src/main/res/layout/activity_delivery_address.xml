@@ -30,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="5dp"
+
                 android:layout_toRightOf="@+id/head_back_icon"
                 android:text="返回"
                 android:textColor="#ffffff"
