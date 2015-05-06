@@ -97,9 +97,19 @@
         android:layout_width="match_parent"
         android:layout_height="0.6dp"
         android:background="#d297afaa"/>
-    <ListView
+
+    <com.handmark.pulltorefresh.library.PullToRefreshScrollView
+        android:id="@+id/Scroll"
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <com.lkw.myapplication.tools.MyListView
         android:id="@+id/VP2_quanbulistView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        />
+        ></com.lkw.myapplication.tools.MyListView>
+        </com.handmark.pulltorefresh.library.PullToRefreshScrollView>
 </LinearLayout>

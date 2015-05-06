@@ -54,49 +54,49 @@ public class HomeCircleImgFragment extends Fragment {
 
                    switch (v.getId()){
                        case R.id.quanbu:
-                           bundle.putString("url","http://api.zhongchou.cn/deal/list?offset=0&categoryID=797484e981d914c7d7c9e72f&sort=sb&v=1");
+                           bundle.putString("url","&categoryID=797484e981d914c7d7c9e72f&sort=sb&v=1");
                            bundle.putInt("count",0);
                            intent.putExtras(bundle);
                            startActivity(intent);
                            break;
                        case R.id.keji:
-                           bundle.putString("url","http://api.zhongchou.cn/deal/list?offset=0&categoryID=1caaa00704ea0af53adad706&sort=sb&v=1");     //装入数据
+                           bundle.putString("url","&categoryID=1caaa00704ea0af53adad706&sort=sb&v=1");     //装入数据
                            bundle.putInt("count",1);
                            intent.putExtras(bundle);
                            startActivity(intent);
                            break;
                        case R.id.gongyi:
-                           bundle.putString("url","http://api.zhongchou.cn/deal/list?offset=0&categoryID=fb9650095e7657e96c79de2f&sort=sb&v=1");     //装入数据
+                           bundle.putString("url","&categoryID=fb9650095e7657e96c79de2f&sort=sb&v=1");     //装入数据
                            bundle.putInt("count",2);
                            intent.putExtras(bundle);
                            startActivity(intent);
                            break;
                        case R.id.chuban:
-                           bundle.putString("url","http://api.zhongchou.cn/deal/list?offset=0&categoryID=1caaa00704cd0af53adad72f&sort=sb&v=1");
+                           bundle.putString("url","&categoryID=1caaa00704cd0af53adad72f&sort=sb&v=1");
                            bundle.putInt("count",3);
                            intent.putExtras(bundle);
                            startActivity(intent);
                            break;
                        case R.id.yule:
-                           bundle.putString("url","http://api.zhongchou.cn/deal/list?offset=0&categoryID=cd5627cc1bd23adaf6f7d406&sort=sb&v=1");
+                           bundle.putString("url","&categoryID=cd5627cc1bd23adaf6f7d406&sort=sb&v=1");
                            bundle.putInt("count",4);
                            intent.putExtras(bundle);
                            startActivity(intent);
                            break;
                        case R.id.yishu:
-                           bundle.putString("url","http://api.zhongchou.cn/deal/list?offset=0&categoryID=653b96c77508497657e9d12f&sort=sb&v=1");
+                           bundle.putString("url","&categoryID=653b96c77508497657e9d12f&sort=sb&v=1");
                            bundle.putInt("count",5);
                            intent.putExtras(bundle);
                            startActivity(intent);
                            break;
                        case R.id.nongye:
-                           bundle.putString("url","http://api.zhongchou.cn/deal/list?offset=0&categoryID=48b2c9e842298511940adb2f&sort=sb&v=1");
+                           bundle.putString("url","&categoryID=48b2c9e842298511940adb2f&sort=sb&v=1");
                            bundle.putInt("count",6);
                            intent.putExtras(bundle);
                            startActivity(intent);
                            break;
                        case R.id.shangpu:
-                           bundle.putString("url","http://api.zhongchou.cn/deal/list?offset=0&categoryID=54a509dbe5d03b6ba5c6d206&sort=sb&v=1");
+                           bundle.putString("url","&categoryID=54a509dbe5d03b6ba5c6d206&sort=sb&v=1");
                            bundle.putInt("count",7);
                            intent.putExtras(bundle);
                            startActivity(intent);
@@ -126,19 +126,19 @@ public class HomeCircleImgFragment extends Fragment {
                     Bundle bundle = new Bundle();
                     switch (v.getId()){
                         case R.id.qita:
-                            bundle.putString("url","http://api.zhongchou.cn/deal/list?offset=0&categoryID=4a9d39f428daf6f73b6bd52f&sort=sb&v=1");
+                            bundle.putString("url","&categoryID=4a9d39f428daf6f73b6bd52f&sort=sb&v=1");
                             bundle.putInt("count",8);
                             intent.putExtras(bundle);
                             startActivity(intent);
                             break;
                         case  R.id.yuanshihui:
-                            bundle.putString("url","http://api.zhongchou.cn/deal/list?offset=0&categoryID=4a9d39f428daf6f73b6bd52f&sort=sb&v=1");
+                            bundle.putString("url","&categoryID=4a9d39f428daf6f73b6bd52f&sort=sb&v=1");
                             bundle.putInt("count",9);
                             intent.putExtras(bundle);
                             startActivity(intent);
                             break;
                         case R.id.zhongchouzhuwu:
-                            bundle.putString("url","http://api.zhongchou.cn/deal/list?offset=0&categoryID=653b96c7752f497657e9d106&sort=sb&v=1");
+                            bundle.putString("url","&categoryID=653b96c7752f497657e9d106&sort=sb&v=1");
                             bundle.putInt("count",10);
                             intent.putExtras(bundle);
                             startActivity(intent);

@@ -57,7 +57,7 @@ public class VP2_quanbu_adapter extends BaseAdapter{
         holder.item_price.setText("￥"+quanbu_beans.getFloorPrice());
         holder.item_sale.setText(quanbu_beans.getProgress()+"%");
         BitmapUtils utils=new BitmapUtils(context);
-          utils.display(holder.item_image,quanbu_beans.getImageUrl());
+        utils.display(holder.item_image,quanbu_beans.getImageUrl());
         return convertView;
 }
 class ViewHolder{

@@ -6,9 +6,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -18,9 +17,7 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest;
-import com.lkw.myapplication.adapter.Spinner_item_Adapter;
 import com.lkw.myapplication.adapter.VP2_quanbu_adapter;
-import com.lkw.myapplication.bean.Spinnerdata;
 import com.lkw.myapplication.bean.VP2_quanbu_beans;
 
 import org.json.JSONArray;
@@ -39,9 +36,8 @@ public class VP2_quanbu_Activity extends ActionBarActivity {
     //声明集合存放数据
     public static List<VP2_quanbu_beans> beans_quanbu_List;
     private ListView listView;
-    //定义spinner属性
+
     private Spinner spinner_type;
-    private Spinner_item_Adapter adapter;
 
 
     private Handler handler = new Handler() {
@@ -115,77 +111,8 @@ public class VP2_quanbu_Activity extends ActionBarActivity {
 
         });
         getListInfo();
-        getSpinneritem();
 
     }
-
-
-    public  void getSpinneritem(){
-        adapter=new Spinner_item_Adapter(this, Spinnerdata.quanbu);
-        //设置适配器
-        spinner_type.setAdapter(adapter);
-        //添加适配器的监听
-        spinner_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ImageView image = (ImageView) view.findViewById(R.id.spinner_item_image);
-//              int img[] = {R.drawable.umeng_fb_tick_selected, R.drawable.umeng_fb_tick_selected, R.drawable.umeng_fb_tick_selected, R.drawable.umeng_fb_tick_selected, R.drawable.umeng_fb_tick_selected,
-//                        R.drawable.umeng_fb_tick_selected, R.drawable.umeng_fb_tick_selected, R.drawable.umeng_fb_tick_selected, R.drawable.umeng_fb_tick_selected, R.drawable.umeng_fb_tick_selected};
-
-//                    if (image!=null){
-//                        image.setVisibility(View.INVISIBLE);
-//                    }
-
-//                    image.setImageResource(img[position]);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        Spinner_item_Adapter adapter1=new Spinner_item_Adapter(this, Spinnerdata.order);
-
-        Spinner spinner_order = (Spinner) findViewById(R.id.spinner_order);
-        //设置适配器
-        spinner_order.setAdapter(adapter1);
-        //添加适配器的监听
-//        spinner_order.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-
-        Spinner_item_Adapter adapter2=new Spinner_item_Adapter(this, Spinnerdata.state);
-
-        Spinner spinner_state = (Spinner) findViewById(R.id.spinner_state);
-        //设置适配器
-        spinner_state.setAdapter(adapter2);
-        //添加适配器的监听
-        spinner_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-    }
-
-
-
-
-
 
     /*
     * 获取ListView的网络数据x
@@ -259,4 +186,8 @@ public class VP2_quanbu_Activity extends ActionBarActivity {
 //            }
 //        });
     }
+
+
+
+
 }
