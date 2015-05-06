@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -29,6 +30,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Bean.HomeLvData;
 
 
 public class VP2_quanbu_Activity extends ActionBarActivity {
@@ -118,6 +121,25 @@ public class VP2_quanbu_Activity extends ActionBarActivity {
         scroll.setMode(PullToRefreshBase.Mode.BOTH);
         initRefreshListener();
         listView = (ListView) findViewById(R.id.VP2_quanbulistView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent =new Intent(VP2_quanbu_Activity.this,ProgressActivity.class);
+                VP2_quanbu_beans vp2_quanbu_beans = beans_quanbu_List.get(position);
+                String IDurl= vp2_quanbu_beans.getProjectID();
+                String   url="http://api.zhongchou.cn/deal/getdetail?projectID="+IDurl+"&v=2";
+                String url1="http://api.zhongchou.cn/deal/getallitems?projectID="+IDurl+"&v=2";
+                String url2="http://api.zhongchou.cn/comment/getlist?offset=0&count=10&projectID="+IDurl+"&v=2";
+                String url3="http://api.zhongchou.cn/deal/getprocess?projectID="+IDurl+"&v=2";
+                Bundle bundle =new Bundle();
+                bundle.putString("url",url);
+                bundle.putString("url1",url1);
+                bundle.putString("url2",url2);
+                bundle.putString("url3",url3);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
         getListInfo();
         vp2Adapter = new VP2_quanbu_adapter(VP2_quanbu_Activity.this,beans_quanbu_List);
 //        listView.setAdapter(vp2Adapter);
@@ -161,6 +183,7 @@ public class VP2_quanbu_Activity extends ActionBarActivity {
                         vp2_bean1.setName(obj2.getString("name"));
                         vp2_bean1.setSummary(obj2.getString("summary"));
                         vp2_bean1.setProgress(obj2.getString("progress"));
+                        vp2_bean1.setProjectID(obj2.getString("projectID"));
                         Log.d("---vp2_bean1", "======" + vp2_bean1);
 
                         beans_quanbu_List.add(vp2_bean1);

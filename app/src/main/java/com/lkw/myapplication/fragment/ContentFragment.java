@@ -121,9 +121,9 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
                  startActivity(intent);
              }
          });
-
         headPager = (ViewPager) view.findViewById(R.id.head_pager);
         circleimg_pager = (ViewPager) view.findViewById(R.id.circleimg_pager);
+
 
         content_frame_back = (ImageView) view.findViewById(R.id.content_frame_back);
         content_frame_back.setOnClickListener(this);
