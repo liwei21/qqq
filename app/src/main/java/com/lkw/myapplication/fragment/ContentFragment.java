@@ -328,49 +328,6 @@ public class ContentFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-//    @Override
-//    public void onPageScrolled(int i, float v, int i2) {
-//        switch (i){
-//            case 0:
-//                ProgressActivity.url="http://api.zhongchou.cn/deal/getdetail?projectID=6a15daddef9ebc30fadac3dc&v=2";
-//                FragmentProActivity.url="http://api.zhongchou.cn/deal/getallitems?projectID=6a15daddef9ebc30fadac3dc&v=2";
-//
-//                break;
-//            case 1:
-//                ProgressActivity.url="";
-//                FragmentProActivity.url="";
-//
-//                break;
-//            case 2:
-//                ProgressActivity.url="";
-//                FragmentProActivity.url="";
-//
-//                break;
-//            case 3:
-//                ProgressActivity.url="";
-//                FragmentProActivity.url="";
-//
-//                break;
-//            case 4:
-//                ProgressActivity.url="";
-//                FragmentProActivity.url="";
-//
-//                break;
-//
-//        }
-//    }
-//
-//    @Override
-//    public void onPageSelected(int i) {
-//
-//    }
-//
-//    @Override
-//    public void onPageScrollStateChanged(int i) {
-//
-//    }
-
-
     class HomeCircleImgAdapter extends FragmentPagerAdapter {
 
         public HomeCircleImgAdapter(FragmentManager fm) {
